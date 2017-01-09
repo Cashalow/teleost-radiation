@@ -1,7 +1,7 @@
 library(picante)
 
 
-source("reading_polyploidy_nodes.R")
+source("reading_trees_polyploid_nodes.R")
 source("extract_polyploid_clades.R")
 source("run_tp_until_not_significant.R")
 source("diversification-functions-from-RPANDA/fit.ln.timevar_errap_log.R")
