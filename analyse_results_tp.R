@@ -47,12 +47,12 @@ plot_list_tp_diversification_values <- function(results, trees, cons, node, clad
 }
 
 write_tp_results <- function(file, dest, polyploid_color, means){
-  lol <- read_results(file)
+  all_tp_results <- read_results(file)
   boundaries <- list()
-  for (i in names(lol)){
+  for (i in names( all_tp_results)){
     print(i)
     devSVG(file=paste(dest, i, "_tp.svg", sep=""), width=12, height=8)
-    boundaries[[i]] <- plot_list_tp_diversification_values(lol[[i]], get(strsplit(i, "_")[[1]][1]), get(paste(strsplit(i, "_")[[1]][1], "_cons", sep="")), get(paste("polyploid_node_", strsplit(i, "_")[[1]][1], "_cons", sep=""))[as.integer(strsplit(i, "_")[[1]][2])], i, polyploid_color, means[[i]])
+    boundaries[[i]] <- plot_list_tp_diversification_values( all_tp_results[[i]], get(strsplit(i, "_")[[1]][1]), get(paste(strsplit(i, "_")[[1]][1], "_cons", sep="")), get(paste("polyploid_node_", strsplit(i, "_")[[1]][1], "_cons", sep=""))[as.integer(strsplit(i, "_")[[1]][2])], i, polyploid_color, means[[i]])
     dev.off()
   }
   return(boundaries)

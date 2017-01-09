@@ -50,12 +50,12 @@ plot_list_diversification_values <- function(res, nb_param, timemax, bound, cons
   poly <- names(descendants(phylo4(cons), node, "tips"))
   for (i in 1:length(res)){
     if (checking_monophyly_polyploids(cons, trees[[i]], node)){
-      lol <- crop_clades(trees[[i]], poly)
+      cropped_clades <- crop_clades(trees[[i]], poly)
       if (!is.null(res[[i]]$res_poly)){
 	print("poly")
         k <- select_best_model(res[[i]]$res_poly, nb_param)
         func_poly[[i]] <- return_diversification_function(res[[i]]$res_poly, k)
-        max <- branching.times(lol$poly)[1]
+        max <- branching.times( cropped_clades$poly)[1]
         l <- rev(func_poly[[i]](seq(0, max, length=200)))
         lines(seq(-max, 0, length=200), l, type="l", col=color)
       }
@@ -63,7 +63,7 @@ plot_list_diversification_values <- function(res, nb_param, timemax, bound, cons
 	print("di")
         k2 <- select_best_model(res[[i]]$res_di, nb_param)
 	func_di[[i]] <- return_diversification_function(res[[i]]$res_di, k2)
-        if (!is.null(lol$di))  max <- branching.times(lol$di)[1]
+        if (!is.null( cropped_clades$di))  max <- branching.times( cropped_clades$di)[1]
         else max <- timemax
         l <- rev(func_di[[i]](seq(0, max, length=200)))
         lines(seq(-max, 0, length=200), l, type="l", col="black")
