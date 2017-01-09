@@ -12,6 +12,22 @@ source("diversification-functions-from-RPANDA/Psi_timevar_errap.R")
 
 
 
+
+read_results<- function(folder){
+  res <- list()
+  for (i in list.files(folder, full.names = FALSE)){
+    load(paste(folder, i, sep="/"))
+    name <- paste(strsplit(i, "_")[[1]][1], strsplit(i, "_")[[1]][2], sep="_")
+    if (!is.list(res[[name]])) res[[name]] <- list()
+    for (j in 1:length(results)){
+      if (!is.null(results[[j]])) res[[name]][[j]] <- results[[j]]
+    }
+  }
+  return(res)
+}
+
+
+
 linear <- function(x,y) {y[1]+y[2]*x}
 constant <- function(x,y) {y[1]}
 expo <- function(x,y) {y[1]*exp(y[2]*x)}
