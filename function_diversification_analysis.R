@@ -76,7 +76,7 @@ run_diversification_tp <- function(tree, starting_point, sampling){
 
 
 
-run_diversification_morlon <- function(clade, starting_point, sampling){
+run_diversification_rpanda <- function(clade, starting_point, sampling){
   funcs <- c("constant", "linear", "expo")
   starting_points_lam <- list(starting_point[[1]], c(starting_point[[1]], 0), c(starting_point[[1]], 0))
   starting_points_mu <- list(starting_point[[2]], c(starting_point[[2]], 0), c(starting_point[[2]], 0))
