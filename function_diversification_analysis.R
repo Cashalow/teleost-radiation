@@ -1,13 +1,13 @@
 library(picante)
 
 
-source("reading_mayrose_data.R")
+source("reading_polyploidy_nodes.R")
 source("extract_polyploid_clades.R")
 source("run_tp_until_not_significant.R")
-source("morlon/fit.ln.timevar_errap_log.R")
-source("morlon/getLikelihood.ln.timevar_errap_log.R")
-source("morlon/Phi_timevar_errap.R")
-source("morlon/Psi_timevar_errap.R")
+source("diversification-functions-from-RPANDA/fit.ln.timevar_errap_log.R")
+source("diversification-functions-from-RPANDA/getLikelihood.ln.timevar_errap_log.R")
+source("diversification-functions-from-RPANDA/Phi_timevar_errap.R")
+source("diversification-functions-from-RPANDA/Psi_timevar_errap.R")
 
 
 
